@@ -12,11 +12,10 @@ async function loadProjects(){
   try{
     const endpoint=`${SUPABASE_URL}/rest/v1/projects?select=*&published=eq.true&order=display_order.asc`;
     const response=await fetch(endpoint,{
-      headers:{
-        apikey:SUPABASE_KEY,
-        Authorization:`Bearer ${SUPABASE_KEY}`
-      }
-    });
+     headers:{
+  apikey:SUPABASE_KEY
+}
+});
 
     if(!response.ok) throw new Error(`Supabase request failed: ${response.status}`);
     const projects=await response.json();
