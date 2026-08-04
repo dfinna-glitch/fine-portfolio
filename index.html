@@ -1,60 +1,41 @@
 <!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>FINE — Creative AI Studio</title>
-<link rel="stylesheet" href="style.css">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="FINE Creative AI Studio — cinematic AI films and visual concepts by Daniel Fine Shamir.">
+  <title>FINE — Creative AI Studio</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<header>
-  <a class="brand" href="#work"><strong>FINE</strong><span>CREATIVE AI STUDIO</span></a>
-  <nav><a href="#work">WORK</a><a href="#about">ABOUT</a><a href="#contact">CONTACT</a></nav>
+<header class="site-header">
+  <a class="brand" href="#work">
+    <span class="brand-name">FINE</span>
+    <span class="brand-sub">Creative AI Studio</span>
+  </a>
+  <nav>
+    <a href="#work">WORK</a>
+    <a href="#about">ABOUT</a>
+    <a href="#contact">CONTACT</a>
+  </nav>
 </header>
 
 <main>
-  <section id="work" class="project-grid">
-    <button class="project-card" data-title="The Yacht Hotel" data-video="assets/videos/the-yacht.mp4" data-note="">
-      <img src="assets/images/the-yacht.jpg" alt="The Yacht Hotel">
-      <span class="overlay"></span>
-      <span class="project-title">The Yacht Hotel</span>
-    </button>
-<button class="project-card" data-title="FIFI Island" data-video="assets/videos/fifi-island.mp4" data-note="">
-      <img src="assets/images/fifi-island.jpg" alt="FIFI Island">
-      <span class="overlay"></span>
-      <span class="project-title">FIFI Island</span>
-    </button>
-<button class="project-card" data-title="FIFA World Cup" data-video="assets/videos/fifa-world-cup.mp4" data-note="Independent concept project. Not commissioned, sponsored or endorsed by the featured brand.">
-      <img src="assets/images/fifa-world-cup.jpg" alt="FIFA World Cup">
-      <span class="overlay"></span>
-      <span class="project-title">FIFA World Cup</span>
-    </button>
-<button class="project-card" data-title="WellBe" data-video="assets/videos/wellbe.mp4" data-note="">
-      <img src="assets/images/wellbe.jpg" alt="WellBe">
-      <span class="overlay"></span>
-      <span class="project-title">WellBe</span>
-    </button>
-<button class="project-card" data-title="Coca Cola" data-video="assets/videos/coca-cola.mp4" data-note="Independent concept project. Not commissioned, sponsored or endorsed by the featured brand.">
-      <img src="assets/images/coca-cola.jpg" alt="Coca Cola">
-      <span class="overlay"></span>
-      <span class="project-title">Coca Cola</span>
-    </button>
-<button class="project-card" data-title="OMS Grills" data-video="assets/videos/oms-grills.mp4" data-note="">
-      <img src="assets/images/oms-grills.jpg" alt="OMS Grills">
-      <span class="overlay"></span>
-      <span class="project-title">OMS Grills</span>
-    </button>
-<button class="project-card" data-title="Memories Alive" data-video="assets/videos/memories-alive.mp4" data-note="">
-      <img src="assets/images/memories-alive.jpg" alt="Memories Alive">
-      <span class="overlay"></span>
-      <span class="project-title">Memories Alive</span>
-    </button>
+  <section id="work" class="work">
+    <div id="projectGrid" class="project-grid">
+      <div class="loading-state">Loading projects...</div>
+    </div>
+    <p id="projectError" class="project-error" hidden>
+      The projects could not be loaded. Please refresh the page.
+    </p>
   </section>
 
   <section id="about" class="about">
-    <div class="about-image"><img src="assets/images/daniel-about.jpg" alt="Daniel Fine Shamir"></div>
+    <div class="about-image">
+      <img src="assets/images/daniel-about.jpg" alt="Daniel Fine Shamir">
+    </div>
     <div class="about-copy">
-      <span class="label">ABOUT</span>
+      <span class="section-label">ABOUT</span>
       <h1>Hi, I'm Daniel Fine Shamir.</h1>
       <p>I hold a degree in Visual Communication and bring experience in UX/UI, graphic design, branding and creative direction.</p>
       <p>I create cinematic AI films and visual concepts by combining design thinking, storytelling and emerging technology.</p>
@@ -62,26 +43,29 @@
   </section>
 
   <section id="contact" class="contact">
-    <span class="label">CONTACT</span>
+    <span class="section-label">CONTACT</span>
     <h2>Let's create something impossible.</h2>
     <a href="mailto:Dfinna@gmail.com">Dfinna@gmail.com ↗</a>
   </section>
 </main>
 
 <footer>
-  <div class="brand"><strong>FINE</strong><span>CREATIVE AI STUDIO</span></div>
+  <div class="brand footer-brand">
+    <span class="brand-name">FINE</span>
+    <span class="brand-sub">Creative AI Studio</span>
+  </div>
   <span>© 2026 Daniel Fine Shamir</span>
 </footer>
 
-<div class="modal" id="modal" aria-hidden="true">
-  <button class="close" aria-label="Close">×</button>
-  <div class="modal-inner">
-    <div class="modal-head">
+<div class="modal" id="videoModal" aria-hidden="true">
+  <button class="modal-close" aria-label="Close video">×</button>
+  <div class="modal-content">
+    <div class="modal-heading">
       <h2 id="modalTitle"></h2>
       <p id="modalNote"></p>
     </div>
-    <div class="player">
-      <video id="modalVideo" controls playsinline></video>
+    <div class="modal-video-wrap">
+      <video id="modalVideo" controls playsinline preload="metadata"></video>
     </div>
   </div>
 </div>
