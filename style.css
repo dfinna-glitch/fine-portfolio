@@ -43,7 +43,7 @@ button {
 .footer-brand {
   display: flex;
   flex-direction: row;
-  align-items: flex-end;
+align-items: center;
   gap: 12px;
   width: auto;
   line-height: 1;
@@ -71,7 +71,7 @@ button {
   text-transform: uppercase;
   white-space: nowrap;
   color: #333;
-  transform: translateY(3px);
+  transform: translateY(2px);
 }
 
 /* NAVIGATION */
