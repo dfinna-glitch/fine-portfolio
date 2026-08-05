@@ -45,4 +45,66 @@
     font-size: 6.5px;
     letter-spacing: 0.14em;
   }
+}/* FOOTER LOGO — same structure as header */
+
+footer .brand {
+  width: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 4px;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+footer .brand-name {
+  font-size: 31px;
+  font-weight: 600;
+  line-height: 1;
+  letter-spacing: -0.04em;
+  color: #111111;
+}
+
+footer .brand-sub {
+  margin: 0;
+  font-size: 8px;
+  font-weight: 500;
+  line-height: 1;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  color: #333333;
+}
+
+
+/* MOBILE PROJECT GRID — two cards per row */
+
+@media (max-width: 600px) {
+  .project-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 8px;
+  }
+
+  .project-card {
+    aspect-ratio: 9 / 16;
+  }
+
+  .project-title {
+    font-size: 18px;
+    padding: 10px;
+    line-height: 1;
+  }
+
+  .work {
+    padding: 10px 10px 60px;
+  }
+
+  footer .brand-name {
+    font-size: 27px;
+  }
+
+  footer .brand-sub {
+    font-size: 6.5px;
+    letter-spacing: 0.14em;
+  }
 }
