@@ -45,66 +45,97 @@
     font-size: 6.5px;
     letter-spacing: 0.14em;
   }
-}/* FOOTER LOGO — same structure as header */
+}/* ==================================
+   HEADER + FOOTER LOGO
+================================== */
 
+.site-header .brand,
 footer .brand {
-  width: auto;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 4px;
-  line-height: 1;
-  white-space: nowrap;
+  width: auto !important;
+  display: inline-flex !important;
+  flex-direction: column !important;
+  align-items: stretch !important;
+  justify-content: flex-start !important;
+  gap: 4px !important;
+  line-height: 1 !important;
+  white-space: nowrap !important;
 }
 
+.site-header .brand-name,
 footer .brand-name {
-  font-size: 31px;
-  font-weight: 600;
-  line-height: 1;
-  letter-spacing: -0.04em;
-  color: #111111;
+  display: block !important;
+  font-size: 31px !important;
+  font-weight: 600 !important;
+  line-height: 0.9 !important;
+  letter-spacing: -0.04em !important;
+  color: #111 !important;
 }
 
+.site-header .brand-sub,
 footer .brand-sub {
-  margin: 0;
-  font-size: 8px;
-  font-weight: 500;
-  line-height: 1;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  white-space: nowrap;
-  color: #333333;
+  display: block !important;
+  width: 100% !important;
+  margin: 0 !important;
+  font-size: 7.5px !important;
+  font-weight: 500 !important;
+  line-height: 1 !important;
+  letter-spacing: 0.08em !important;
+  text-transform: uppercase !important;
+  text-align: justify !important;
+  text-align-last: justify !important;
+  white-space: nowrap !important;
+  color: #333 !important;
 }
 
 
-/* MOBILE PROJECT GRID — two cards per row */
+/* ==================================
+   MOBILE — 2 PROJECTS IN EACH ROW
+================================== */
 
-@media (max-width: 600px) {
+@media screen and (max-width: 600px) {
+
   .project-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 8px;
+    display: grid !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 8px !important;
   }
 
   .project-card {
-    aspect-ratio: 9 / 16;
+    width: 100% !important;
+    min-width: 0 !important;
+    aspect-ratio: 9 / 16 !important;
+  }
+
+  .project-card img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
   }
 
   .project-title {
-    font-size: 18px;
-    padding: 10px;
-    line-height: 1;
+    padding: 8px !important;
+    font-size: 16px !important;
+    line-height: 1 !important;
   }
 
   .work {
-    padding: 10px 10px 60px;
+    padding: 10px 8px 60px !important;
   }
 
+  footer {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 18px !important;
+  }
+
+  .site-header .brand-name,
   footer .brand-name {
-    font-size: 27px;
+    font-size: 27px !important;
   }
 
+  .site-header .brand-sub,
   footer .brand-sub {
-    font-size: 6.5px;
-    letter-spacing: 0.14em;
+    font-size: 6.5px !important;
   }
 }
