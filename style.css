@@ -52,14 +52,14 @@ align-items: center;
 
 .site-header .brand-name,
 .footer-brand .brand-name {
-  display: block;
-  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
-  font-size: 58px;
-  font-weight: 400;
-  line-height: 0.85;
-  letter-spacing: 0.03em;
-  text-transform: uppercase;
-  color: #111;
+    display: block;
+    font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+    font-size: 58px;
+    font-weight: 400;
+    line-height: 0.82;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #000;
 }
 
 .site-header .brand-sub,
@@ -428,24 +428,22 @@ footer {
   margin: 0 0 1px 0 !important;
   line-height: 1 !important;
 }
-/* FINE logo image */
+/* Exact FINE logo image */
 
 .logo-image {
   display: block;
-  width: 92px;
+  width: 112px;
   height: auto;
+  object-fit: contain;
 }
 
 .footer-brand .logo-image {
-  width: 92px;
+  width: 112px;
 }
 
 @media (max-width: 600px) {
-  .logo-image {
-    width: 76px;
-  }
-
+  .logo-image,
   .footer-brand .logo-image {
-    width: 76px;
+    width: 88px;
   }
 }
