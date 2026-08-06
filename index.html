@@ -1,75 +1,138 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <meta name="description" content="FINE Creative AI Studio — cinematic AI films and visual concepts by Daniel Fine Shamir.">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <meta
+    name="description"
+    content="FINE Creative AI Studio — cinematic AI films and visual concepts by Daniel Fine Shamir."
+  >
+
   <title>FINE — Creative AI Studio</title>
+
   <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
+
 <header class="site-header">
+
   <a class="brand" href="#work">
-    <span class="brand-name">FINE</span>
-    <span class="brand-sub">CREATIVE AI STUDIO</span>
+    <img
+      src="assets/images/FINE_logo.svg"
+      alt="FINE"
+      class="logo-image">
   </a>
+
   <nav>
     <a href="#work">WORK</a>
     <a href="#about">ABOUT</a>
     <a href="#contact">CONTACT</a>
   </nav>
+
 </header>
 
 <main>
-  <section id="work" class="work">
-    <div id="projectGrid" class="project-grid">
-      <div class="loading-state">Loading projects...</div>
-    </div>
-    <p id="projectError" class="project-error" hidden>
-      The projects could not be loaded. Please refresh the page.
-    </p>
-  </section>
 
-  <section id="about" class="about">
-    <div class="about-image">
-      <img src="assets/images/daniel-about.jpg" alt="Daniel Fine Shamir">
-    </div>
-    <div class="about-copy">
-      <span class="section-label">ABOUT</span>
-      <h1>Hi, I'm Daniel Fine Shamir.</h1>
-      <p>I hold a degree in Visual Communication and bring experience in UX/UI, graphic design, branding and creative direction.</p>
-      <p>I create cinematic AI films and visual concepts by combining design thinking, storytelling and emerging technology.</p>
-    </div>
-  </section>
+<section id="work" class="work">
 
-  <section id="contact" class="contact">
-    <span class="section-label">CONTACT</span>
-    <h2>Let's create something impossible.</h2>
-    <a href="mailto:Dfinna@gmail.com">Dfinna@gmail.com ↗</a>
-  </section>
+<div id="projectGrid" class="project-grid">
+<div class="loading-state">Loading projects...</div>
+</div>
+
+<p id="projectError" class="project-error" hidden>
+The projects could not be loaded. Please refresh the page.
+</p>
+
+</section>
+
+<section id="about" class="about">
+
+<div class="about-image">
+<img
+src="assets/images/daniel-about.jpg"
+alt="Daniel Fine Shamir">
+</div>
+
+<div class="about-copy">
+
+<span class="section-label">ABOUT</span>
+
+<h1>Hi, I'm Daniel Fine Shamir.</h1>
+
+<p>
+I hold a degree in Visual Communication and bring experience
+in UX/UI, graphic design, branding and creative direction.
+</p>
+
+<p>
+I create cinematic AI films and visual concepts by combining
+design thinking, storytelling and emerging technology.
+</p>
+
+</div>
+
+</section>
+
+<section id="contact" class="contact">
+
+<span class="section-label">CONTACT</span>
+
+<h2>Let's create something impossible.</h2>
+
+<a href="mailto:Dfinna@gmail.com">
+Dfinna@gmail.com ↗
+</a>
+
+</section>
+
 </main>
 
 <footer>
-  <div class="brand footer-brand">
-    <span class="brand-name">FINE</span>
-    <span class="brand-sub">Creative AI Studio</span>
-  </div>
-  <span>© 2026 Daniel Fine Shamir</span>
+
+<div class="brand footer-brand">
+
+<img
+src="assets/images/FINE_logo.svg"
+alt="FINE"
+class="logo-image">
+
+</div>
+
+<span>© 2026 Daniel Fine Shamir</span>
+
 </footer>
 
 <div class="modal" id="videoModal" aria-hidden="true">
-  <button class="modal-close" aria-label="Close video">×</button>
-  <div class="modal-content">
-    <div class="modal-heading">
-      <h2 id="modalTitle"></h2>
-      <p id="modalNote"></p>
-    </div>
-    <div class="modal-video-wrap">
-      <video id="modalVideo" controls playsinline preload="metadata"></video>
-    </div>
-  </div>
+
+<button
+class="modal-close"
+aria-label="Close video">
+×
+</button>
+
+<div class="modal-content">
+
+<div class="modal-heading">
+<h2 id="modalTitle"></h2>
+<p id="modalNote"></p>
+</div>
+
+<div class="modal-video-wrap">
+<video
+id="modalVideo"
+controls
+playsinline
+preload="metadata">
+</video>
+</div>
+
+</div>
+
 </div>
 
 <script src="script.js"></script>
+
 </body>
 </html>
