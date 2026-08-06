@@ -12,9 +12,15 @@ html {
 
 body {
   margin: 0;
+
   color: #111;
   background: #fff;
-  font-family: "Helvetica Neue", Arial, sans-serif;
+
+  font-family:
+    "Helvetica Neue",
+    Arial,
+    sans-serif;
+
   -webkit-font-smoothing: antialiased;
 }
 
@@ -43,12 +49,19 @@ textarea {
   justify-content: space-between;
   align-items: center;
 
-  min-height: 70px;
-  padding: 13px 38px;
+  min-height: 66px;
 
-  background: rgba(255, 255, 255, 0.96);
+  padding:
+    11px
+    48px;
+
+  background:
+    rgba(255, 255, 255, 0.96);
+
   backdrop-filter: blur(14px);
-  border-bottom: 1px solid #dedede;
+
+  border-bottom:
+    1px solid #dedede;
 }
 
 
@@ -59,12 +72,14 @@ textarea {
 .brand {
   display: flex;
   align-items: center;
+
   line-height: 0;
 }
 
 .logo-image {
   display: block;
-  width: 80px;
+
+  width: 68px;
   height: auto;
 }
 
@@ -76,9 +91,10 @@ textarea {
 nav {
   display: flex;
   align-items: center;
+
   gap: 34px;
 
-  margin-right: 10px;
+  margin: 0;
 
   font-size: 13px;
   font-weight: 400;
@@ -93,6 +109,7 @@ nav a::after {
   content: "";
 
   position: absolute;
+
   left: 0;
   right: 100%;
   bottom: -6px;
@@ -101,7 +118,8 @@ nav a::after {
 
   background: #111;
 
-  transition: right 0.25s ease;
+  transition:
+    right 0.25s ease;
 }
 
 nav a:hover::after {
@@ -116,8 +134,8 @@ nav a:hover::after {
 .menu-toggle {
   display: none;
 
-  width: 28px;
-  height: 22px;
+  width: 26px;
+  height: 20px;
 
   padding: 0;
   border: 0;
@@ -130,23 +148,29 @@ nav a:hover::after {
 .menu-toggle span {
   display: block;
 
-  width: 24px;
+  width: 22px;
   height: 1px;
 
-  margin: 6px 0;
+  margin: 5px 0;
 
   background: #111;
 
-  transition: transform 0.3s ease;
+  transition:
+    transform 0.3s ease;
+
   transform-origin: center;
 }
 
 .menu-toggle.open span:first-child {
-  transform: translateY(3.5px) rotate(45deg);
+  transform:
+    translateY(3px)
+    rotate(45deg);
 }
 
 .menu-toggle.open span:last-child {
-  transform: translateY(-3.5px) rotate(-45deg);
+  transform:
+    translateY(-3px)
+    rotate(-45deg);
 }
 
 
@@ -155,7 +179,10 @@ nav a:hover::after {
 ========================= */
 
 .work {
-  padding: 24px 14px 105px;
+  padding:
+    24px
+    14px
+    105px;
 }
 
 .project-grid {
@@ -171,6 +198,7 @@ nav a:hover::after {
   position: relative;
 
   width: 100%;
+
   aspect-ratio: 9 / 16;
 
   padding: 0;
@@ -192,21 +220,27 @@ nav a:hover::after {
   object-fit: cover;
 
   transition:
-    transform 0.75s
+    transform
+    0.75s
     cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .project-overlay {
   position: absolute;
+
   inset: 0;
 
-  background: rgba(0, 0, 0, 0.26);
+  background:
+    rgba(0, 0, 0, 0.26);
 
-  transition: background 0.35s ease;
+  transition:
+    background
+    0.35s ease;
 }
 
 .project-title {
   position: absolute;
+
   inset: 0;
 
   display: grid;
@@ -215,11 +249,16 @@ nav a:hover::after {
   padding: 22px;
 
   color: #fff;
+
   text-align: center;
 
-  font-size: clamp(27px, 2.65vw, 49px);
+  font-size:
+    clamp(27px, 2.65vw, 49px);
+
   font-weight: 500;
+
   letter-spacing: -0.04em;
+
   line-height: 0.95;
 }
 
@@ -228,7 +267,8 @@ nav a:hover::after {
 }
 
 .project-card:hover .project-overlay {
-  background: rgba(0, 0, 0, 0.15);
+  background:
+    rgba(0, 0, 0, 0.15);
 }
 
 .loading-state {
@@ -240,14 +280,19 @@ nav a:hover::after {
   place-items: center;
 
   font-size: 11px;
+
   letter-spacing: 0.14em;
+
   text-transform: uppercase;
 }
 
 .project-error {
-  padding: 60px 20px;
+  padding:
+    60px
+    20px;
 
   color: #666;
+
   text-align: center;
 }
 
@@ -259,14 +304,20 @@ nav a:hover::after {
 .about {
   display: grid;
 
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns:
+    1fr
+    1fr;
 
   gap: 8vw;
+
   align-items: center;
 
-  padding: 110px 6vw;
+  padding:
+    110px
+    6vw;
 
-  border-top: 1px solid #dedede;
+  border-top:
+    1px solid #dedede;
 }
 
 .about-image {
@@ -284,23 +335,35 @@ nav a:hover::after {
   height: 100%;
 
   object-fit: cover;
-  object-position: center 20%;
+
+  object-position:
+    center
+    20%;
 }
 
 .section-label {
   color: #707070;
 
   font-size: 10px;
+
   font-weight: 500;
+
   letter-spacing: 0.16em;
 }
 
 .about-copy h1 {
-  margin: 24px 0 32px;
+  margin:
+    24px
+    0
+    32px;
 
-  font-size: clamp(52px, 6vw, 96px);
+  font-size:
+    clamp(52px, 6vw, 96px);
+
   font-weight: 500;
+
   line-height: 0.92;
+
   letter-spacing: -0.05em;
 }
 
@@ -310,6 +373,7 @@ nav a:hover::after {
   color: #555;
 
   font-size: 18px;
+
   line-height: 1.72;
 }
 
@@ -326,39 +390,83 @@ nav a:hover::after {
     minmax(340px, 0.85fr);
 
   gap: 8vw;
+
   align-items: start;
 
-  padding: 120px 6vw;
+  padding:
+    120px
+    6vw;
 
-  border-top: 1px solid #dedede;
+  border-top:
+    1px solid #dedede;
 }
 
 .contact-heading h2 {
   max-width: 900px;
 
-  margin: 28px 0 55px;
+  margin:
+    28px
+    0
+    55px;
 
-  font-size: clamp(64px, 8vw, 130px);
+  font-size:
+    clamp(64px, 8vw, 130px);
+
   font-weight: 500;
+
   line-height: 0.86;
+
   letter-spacing: -0.06em;
 }
 
 .contact-email {
-  display: inline-block;
+  display: inline-flex;
+
+  align-items: center;
+
+  gap: 8px;
 
   padding-bottom: 7px;
 
-  border-bottom: 1px solid #111;
+  border-bottom:
+    1px solid #111;
 
   font-size: 11px;
+
   font-weight: 500;
+
   letter-spacing: 0.14em;
+
   text-transform: uppercase;
+}
+
+.email-arrow {
+  display: inline-block;
+
+  color: #111;
+
+  font-size: 16px;
+
+  font-weight: 300;
+
+  line-height: 1;
+
+  transform:
+    translateY(-1px);
+
+  transition:
+    transform
+    0.25s ease;
+}
+
+.contact-email:hover .email-arrow {
+  transform:
+    translate(3px, -1px);
 }
 
 .contact-form {
   width: 100%;
+
   padding-top: 28px;
 }
 
@@ -374,7 +482,9 @@ nav a:hover::after {
   color: #666;
 
   font-size: 9px;
+
   font-weight: 500;
+
   letter-spacing: 0.16em;
 }
 
@@ -384,24 +494,35 @@ nav a:hover::after {
 
   width: 100%;
 
-  padding: 10px 0 13px;
+  padding:
+    10px
+    0
+    13px;
 
   border: 0;
-  border-bottom: 1px solid #aaa;
+
+  border-bottom:
+    1px solid #aaa;
+
   border-radius: 0;
 
   outline: none;
 
   background: transparent;
+
   color: #111;
 
   font-family: inherit;
+
   font-size: 17px;
+
   line-height: 1.5;
 
   resize: vertical;
 
-  transition: border-color 0.25s ease;
+  transition:
+    border-color
+    0.25s ease;
 }
 
 .form-field input:focus,
@@ -410,42 +531,56 @@ nav a:hover::after {
 }
 
 .form-submit {
-  padding: 14px 22px;
+  padding:
+    14px
+    22px;
 
-  border: 1px solid #111;
+  border:
+    1px solid #111;
 
   background: #111;
+
   color: #fff;
 
   font-size: 10px;
+
   font-weight: 500;
+
   letter-spacing: 0.16em;
 
   cursor: pointer;
 
   transition:
-    background 0.25s ease,
-    color 0.25s ease;
+    background
+    0.25s ease,
+    color
+    0.25s ease;
 }
 
 .form-submit:hover {
   background: #fff;
+
   color: #111;
 }
 
 .form-submit:disabled {
   opacity: 0.5;
+
   cursor: wait;
 }
 
 .form-status {
   min-height: 22px;
 
-  margin: 16px 0 0;
+  margin:
+    16px
+    0
+    0;
 
   color: #555;
 
   font-size: 13px;
+
   line-height: 1.5;
 }
 
@@ -456,12 +591,17 @@ nav a:hover::after {
 
 footer {
   display: flex;
-  justify-content: flex-end;
+
+  justify-content: flex-start;
+
   align-items: center;
 
-  padding: 24px 38px;
+  padding:
+    24px
+    48px;
 
-  border-top: 1px solid #dedede;
+  border-top:
+    1px solid #dedede;
 
   color: #777;
 
@@ -475,12 +615,17 @@ footer {
 
 .modal {
   position: fixed;
+
   inset: 0;
+
   z-index: 100;
 
   display: none;
 
-  padding: 72px 28px 28px;
+  padding:
+    72px
+    28px
+    28px;
 
   overflow: auto;
 
@@ -505,21 +650,25 @@ footer {
   background: transparent;
 
   font-size: 44px;
+
   font-weight: 300;
 
   cursor: pointer;
 }
 
 .modal-content {
-  width: min(1080px, 100%);
+  width:
+    min(1080px, 100%);
 
-  margin: 0 auto;
+  margin:
+    0 auto;
 }
 
 .modal-heading {
   display: flex;
 
   justify-content: space-between;
+
   align-items: flex-end;
 
   gap: 30px;
@@ -530,8 +679,11 @@ footer {
 .modal-heading h2 {
   margin: 0;
 
-  font-size: clamp(44px, 6vw, 88px);
+  font-size:
+    clamp(44px, 6vw, 88px);
+
   font-weight: 500;
+
   letter-spacing: -0.05em;
 }
 
@@ -543,6 +695,7 @@ footer {
   color: #666;
 
   font-size: 12px;
+
   line-height: 1.5;
 }
 
@@ -550,6 +703,7 @@ footer {
   display: flex;
 
   justify-content: center;
+
   align-items: center;
 
   min-height: 65vh;
@@ -560,8 +714,11 @@ footer {
 .modal-video-wrap video {
   display: block;
 
-  width: min(100%, 540px);
+  width:
+    min(100%, 540px);
+
   height: auto;
+
   max-height: 82vh;
 
   object-fit: contain;
@@ -584,7 +741,9 @@ footer {
   .about {
     grid-template-columns: 1fr;
 
-    padding: 80px 24px;
+    padding:
+      80px
+      24px;
   }
 
   .about-copy {
@@ -615,13 +774,15 @@ footer {
 @media (max-width: 600px) {
 
   .site-header {
-    min-height: 58px;
+    min-height: 54px;
 
-    padding: 11px 12px;
+    padding:
+      9px
+      18px;
   }
 
   .logo-image {
-    width: 66px;
+    width: 54px;
   }
 
   .menu-toggle {
@@ -633,7 +794,8 @@ footer {
   }
 
   .menu-toggle span {
-    width: 22px;
+    width: 21px;
+
     height: 1px;
 
     margin: 5px 0;
@@ -655,23 +817,30 @@ footer {
     position: absolute;
 
     top: 100%;
+
     left: 0;
     right: 0;
 
     z-index: 40;
 
     display: flex;
+
     flex-direction: column;
+
     align-items: stretch;
 
     gap: 0;
 
     visibility: hidden;
+
     opacity: 0;
 
-    transform: translateY(-10px);
+    transform:
+      translateY(-10px);
 
-    padding: 0 12px;
+    padding:
+      0
+      18px;
 
     background:
       rgba(255, 255, 255, 0.99);
@@ -680,26 +849,35 @@ footer {
       1px solid #dedede;
 
     transition:
-      opacity 0.25s ease,
-      transform 0.25s ease,
-      visibility 0.25s ease;
+      opacity
+      0.25s ease,
+      transform
+      0.25s ease,
+      visibility
+      0.25s ease;
   }
 
   .site-header nav.open {
     visibility: visible;
+
     opacity: 1;
 
-    transform: translateY(0);
+    transform:
+      translateY(0);
   }
 
   .site-header nav a {
-    padding: 18px 0;
+    padding:
+      18px
+      0;
 
     border-bottom:
       1px solid #e7e7e7;
 
     font-size: 16px;
+
     font-weight: 400;
+
     letter-spacing: 0;
   }
 
@@ -712,7 +890,10 @@ footer {
   }
 
   .work {
-    padding: 10px 8px 60px;
+    padding:
+      10px
+      8px
+      60px;
   }
 
   .project-grid {
@@ -726,11 +907,14 @@ footer {
     padding: 8px;
 
     font-size: 17px;
+
     line-height: 1;
   }
 
   .about {
-    padding: 70px 18px;
+    padding:
+      70px
+      18px;
   }
 
   .about-copy h1 {
@@ -746,7 +930,9 @@ footer {
 
     gap: 55px;
 
-    padding: 90px 18px;
+    padding:
+      90px
+      18px;
   }
 
   .contact-heading h2 {
@@ -760,14 +946,29 @@ footer {
     padding-top: 0;
   }
 
-  footer {
-    justify-content: flex-start;
+  .contact-email {
+    gap: 6px;
 
-    padding: 22px 12px;
+    font-size: 10px;
+
+    letter-spacing: 0.11em;
+  }
+
+  .email-arrow {
+    font-size: 14px;
+  }
+
+  footer {
+    padding:
+      22px
+      18px;
   }
 
   .modal {
-    padding: 70px 14px 20px;
+    padding:
+      70px
+      14px
+      20px;
   }
 
   .modal-video-wrap {
