@@ -69,20 +69,49 @@ textarea {
    LOGO
 ========================= */
 
-.brand {
-  display: flex;
-  align-items: center;
+.brand{
 
-  line-height: 0;
+    display:flex;
+
+    align-items:center;
+
+    gap:8px;
+
+    line-height:1;
+
 }
 
-.logo-image {
-  display: block;
+.logo-image{
 
-  width: 68px;
-  height: auto;
+    display:block;
+
+    width:46px;
+
+    height:auto;
+
 }
 
+.brand-sub{
+
+    font-family:"Helvetica Neue", Arial, sans-serif;
+
+    font-size:7px;
+
+    font-weight:400;
+
+    letter-spacing:.14em;
+
+    text-transform:uppercase;
+
+    color:#444;
+
+    white-space:nowrap;
+
+    line-height:1;
+
+    margin-left:2px;
+
+}
 
 /* =========================
    DESKTOP NAVIGATION
@@ -596,9 +625,9 @@ footer {
 
   align-items: center;
 
-  padding:
-    24px
-    48px;
+ padding:
+24px
+60px;
 
   border-top:
     1px solid #dedede;
@@ -777,8 +806,8 @@ footer {
     min-height: 54px;
 
     padding:
-      9px
-      18px;
+12px
+60px;
   }
 
   .logo-image {
