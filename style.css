@@ -645,7 +645,7 @@ footer {
 
   .logo-image {
     display: block;
-    width: 44px;
+    width: 48px;
     height: auto;
   }
 
@@ -656,10 +656,10 @@ footer {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: flex-end;
+    align-items: center;
 
     width: 30px;
-    height: 26px;
+    height: 28px;
 
     padding: 0;
     border: 0;
@@ -673,7 +673,6 @@ footer {
 
     width: 26px;
     height: 1px;
-
     margin: 3px 0;
 
     background: #111;
@@ -681,6 +680,8 @@ footer {
     transition:
       transform 0.3s ease,
       opacity 0.3s ease;
+
+    transform-origin: center;
   }
 
   .menu-toggle.open span:nth-child(1) {
