@@ -1,321 +1,43 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-  <meta charset="UTF-8">
-
-  <meta
-    name="viewport"
-    content="width=device-width, initial-scale=1.0"
-  >
-
-  <meta
-    name="description"
-    content="FINE Creative AI Studio — cinematic AI films and visual concepts by Daniel Fine Shamir."
-  >
-
-  <title>FINE — Creative AI Studio</title>
-
-  <link
-    rel="stylesheet"
-    href="style.css?v=7"
-  >
-</head>
-
-<body>
-
-  <header class="site-header">
+<header class="site-header">
 
     <a
-      class="brand"
-      href="#work"
-      aria-label="FINE Creative AI Studio"
+        class="brand"
+        href="#work"
+        aria-label="FINE"
     >
 
-      <img
-        src="assets/images/FINE_logo.svg"
-        alt="FINE"
-        class="logo-image"
-      >
-
-      <span class="brand-sub">
-        CREATIVE AI STUDIO
-      </span>
+        <img
+            src="assets/images/FINE_logo.svg"
+            alt="FINE"
+            class="logo-image"
+        >
 
     </a>
 
-
     <button
-      class="menu-toggle"
-      id="menuToggle"
-      type="button"
-      aria-label="Open menu"
-      aria-expanded="false"
-      aria-controls="mainNavigation"
+        class="menu-toggle"
+        id="menuToggle"
+        type="button"
+        aria-label="Open menu"
+        aria-expanded="false"
+        aria-controls="mainNavigation"
     >
-      <span></span>
-      <span></span>
-      <span></span>
-    </button>
 
+        <span></span>
+        <span></span>
+        <span></span>
+
+    </button>
 
     <nav
-      id="mainNavigation"
-      aria-label="Main navigation"
+        id="mainNavigation"
+        aria-label="Main navigation"
     >
-      <a href="#work">WORK</a>
-      <a href="#about">ABOUT</a>
-      <a href="#contact">CONTACT</a>
+
+        <a href="#work">WORK</a>
+        <a href="#about">ABOUT</a>
+        <a href="#contact">CONTACT</a>
+
     </nav>
 
-  </header>
-
-
-  <main>
-
-    <section
-      id="work"
-      class="work"
-    >
-
-      <div
-        id="projectGrid"
-        class="project-grid"
-      >
-        <div class="loading-state">
-          Loading projects...
-        </div>
-      </div>
-
-      <p
-        id="projectError"
-        class="project-error"
-        hidden
-      >
-        The projects could not be loaded. Please refresh the page.
-      </p>
-
-    </section>
-
-
-    <section
-      id="about"
-      class="about"
-    >
-
-      <div class="about-image">
-
-        <img
-          src="assets/images/daniel-about.jpg"
-          alt="Daniel Fine Shamir"
-        >
-
-      </div>
-
-
-      <div class="about-copy">
-
-        <span class="section-label">
-          ABOUT
-        </span>
-
-        <h1>
-          Hi, I'm Daniel Fine Shamir.
-        </h1>
-
-        <p>
-          I hold a degree in Visual Communication and bring experience
-          in UX/UI, graphic design, branding and creative direction.
-        </p>
-
-        <p>
-          I create cinematic AI films and visual concepts by combining
-          design thinking, storytelling and emerging technology.
-        </p>
-
-      </div>
-
-    </section>
-
-
-    <section
-      id="contact"
-      class="contact"
-    >
-
-      <div class="contact-heading">
-
-        <span class="section-label">
-          CONTACT
-        </span>
-
-        <h2>
-          Let's create something impossible.
-        </h2>
-
-        <a
-          class="contact-email"
-          href="mailto:Dfinna@gmail.com"
-        >
-          <span>
-            Dfinna@gmail.com
-          </span>
-
-          <span
-            class="email-arrow"
-            aria-hidden="true"
-          >
-            →
-          </span>
-        </a>
-
-      </div>
-
-
-      <form
-        class="contact-form"
-        id="contactForm"
-      >
-
-        <div class="form-field">
-
-          <label for="contactName">
-            NAME
-          </label>
-
-          <input
-            id="contactName"
-            name="name"
-            type="text"
-            autocomplete="name"
-            required
-          >
-
-        </div>
-
-
-        <div class="form-field">
-
-          <label for="contactEmail">
-            EMAIL
-          </label>
-
-          <input
-            id="contactEmail"
-            name="email"
-            type="email"
-            autocomplete="email"
-            required
-          >
-
-        </div>
-
-
-        <div class="form-field">
-
-          <label for="contactPhone">
-            PHONE
-          </label>
-
-          <input
-            id="contactPhone"
-            name="phone"
-            type="tel"
-            autocomplete="tel"
-          >
-
-        </div>
-
-
-        <div class="form-field">
-
-          <label for="contactMessage">
-            TELL ME ABOUT YOUR PROJECT
-          </label>
-
-          <textarea
-            id="contactMessage"
-            name="message"
-            rows="5"
-            required
-          ></textarea>
-
-        </div>
-
-
-        <button
-          class="form-submit"
-          type="submit"
-        >
-          SEND MESSAGE
-        </button>
-
-
-        <p
-          class="form-status"
-          id="formStatus"
-          role="status"
-          aria-live="polite"
-        ></p>
-
-      </form>
-
-    </section>
-
-  </main>
-
-
-  <footer>
-    <span>
-      © 2026 Daniel Fine Shamir
-    </span>
-  </footer>
-
-
-  <div
-    class="modal"
-    id="videoModal"
-    aria-hidden="true"
-  >
-
-    <button
-      class="modal-close"
-      type="button"
-      aria-label="Close video"
-    >
-      ×
-    </button>
-
-
-    <div class="modal-content">
-
-      <div class="modal-heading">
-
-        <h2 id="modalTitle"></h2>
-
-        <p id="modalNote"></p>
-
-      </div>
-
-
-      <div class="modal-video-wrap">
-
-        <video
-          id="modalVideo"
-          controls
-          playsinline
-          preload="metadata"
-        ></video>
-
-      </div>
-
-    </div>
-
-  </div>
-
-
-  <script src="script.js?v=7"></script>
-
-</body>
-
-</html>
+</header>
