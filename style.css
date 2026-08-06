@@ -631,45 +631,60 @@ footer {
 ========================= */
 
 @media (max-width: 600px) {
+
   .site-header {
-    min-height: 52px;
-    padding: 9px 10px;
+    min-height: 56px;
+    padding: 10px 16px;
   }
 
   .brand {
-    gap: 5px;
+    display: flex;
+    align-items: center;
+    line-height: 0;
   }
 
   .logo-image {
-    width: 38px;
-  }
-
-  .brand-sub {
-    font-size: 5px;
-    font-weight: 300;
-    letter-spacing: 0.11em;
-
-    transform: translateY(0);
+    display: block;
+    width: 44px;
+    height: auto;
   }
 
   .menu-toggle {
     position: relative;
     z-index: 42;
 
-    display: block;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-end;
 
     width: 30px;
-    height: 24px;
+    height: 26px;
+
+    padding: 0;
+    border: 0;
+
+    background: transparent;
+    cursor: pointer;
   }
 
   .menu-toggle span {
+    display: block;
+
     width: 26px;
     height: 1px;
-    margin: 5px 0;
+
+    margin: 3px 0;
+
+    background: #111;
+
+    transition:
+      transform 0.3s ease,
+      opacity 0.3s ease;
   }
 
   .menu-toggle.open span:nth-child(1) {
-    transform: translateY(6px) rotate(45deg);
+    transform: translateY(7px) rotate(45deg);
   }
 
   .menu-toggle.open span:nth-child(2) {
@@ -677,7 +692,7 @@ footer {
   }
 
   .menu-toggle.open span:nth-child(3) {
-    transform: translateY(-6px) rotate(-45deg);
+    transform: translateY(-7px) rotate(-45deg);
   }
 
   .site-header nav {
@@ -697,7 +712,7 @@ footer {
 
     transform: translateY(-10px);
 
-    padding: 0 10px;
+    padding: 0 16px;
 
     background: rgba(255, 255, 255, 0.99);
     border-bottom: 1px solid #dedede;
@@ -744,7 +759,6 @@ footer {
 
   .project-title {
     padding: 8px;
-
     font-size: 17px;
     line-height: 1;
   }
@@ -770,7 +784,6 @@ footer {
 
   .contact-heading h2 {
     margin-bottom: 40px;
-
     font-size: clamp(54px, 17vw, 78px);
   }
 
@@ -780,7 +793,6 @@ footer {
 
   .contact-email {
     gap: 6px;
-
     font-size: 10px;
     letter-spacing: 0.11em;
   }
@@ -800,4 +812,5 @@ footer {
   .modal-video-wrap {
     min-height: auto;
   }
+
 }
