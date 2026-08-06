@@ -12,15 +12,9 @@ html {
 
 body {
   margin: 0;
-
   color: #111;
   background: #fff;
-
-  font-family:
-    "Helvetica Neue",
-    Arial,
-    sans-serif;
-
+  font-family: "Helvetica Neue", Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
 }
 
@@ -49,19 +43,12 @@ textarea {
   justify-content: space-between;
   align-items: center;
 
-  min-height: 66px;
+  min-height: 64px;
+  padding: 11px 56px;
 
-  padding:
-    11px
-    48px;
-
-  background:
-    rgba(255, 255, 255, 0.96);
-
+  background: rgba(255, 255, 255, 0.96);
   backdrop-filter: blur(14px);
-
-  border-bottom:
-    1px solid #dedede;
+  border-bottom: 1px solid #dedede;
 }
 
 
@@ -69,55 +56,37 @@ textarea {
    LOGO
 ========================= */
 
-.brand{
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 7px;
 
-    display:flex;
-
-    align-items:center;
-
-    gap:8px;
-
-    text-decoration:none;
-
-    white-space:nowrap;
-
+  line-height: 1;
+  white-space: nowrap;
 }
 
-.logo-image{
-
-    display:block;
-
-    width:46px;
-
-    height:auto;
-
+.logo-image {
+  display: block;
+  width: 42px;
+  height: auto;
 }
 
-.brand-sub{
+.brand-sub {
+  display: block;
 
-    display:flex;
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  font-size: 7px;
+  font-weight: 300;
+  letter-spacing: 0.16em;
+  line-height: 1;
+  text-transform: uppercase;
 
-    align-items:center;
+  color: #444;
+  white-space: nowrap;
 
-    font-family:"Helvetica Neue", Arial, sans-serif;
-
-    font-size:8px;
-
-    font-weight:300;
-
-    letter-spacing:.24em;
-
-    text-transform:uppercase;
-
-    color:#111;
-
-    line-height:1;
-
-    white-space:nowrap;
-
-    margin-top:1px;
-
+  transform: translateY(1px);
 }
+
 
 /* =========================
    DESKTOP NAVIGATION
@@ -126,8 +95,7 @@ textarea {
 nav {
   display: flex;
   align-items: center;
-
-  gap: 34px;
+  gap: 38px;
 
   margin: 0;
 
@@ -144,17 +112,14 @@ nav a::after {
   content: "";
 
   position: absolute;
-
   left: 0;
   right: 100%;
   bottom: -6px;
 
   height: 1px;
-
   background: #111;
 
-  transition:
-    right 0.25s ease;
+  transition: right 0.25s ease;
 }
 
 nav a:hover::after {
@@ -169,43 +134,42 @@ nav a:hover::after {
 .menu-toggle {
   display: none;
 
-  width: 26px;
-  height: 20px;
+  width: 30px;
+  height: 24px;
 
   padding: 0;
   border: 0;
 
   background: transparent;
-
   cursor: pointer;
 }
 
 .menu-toggle span {
   display: block;
 
-  width: 22px;
+  width: 26px;
   height: 1px;
-
   margin: 5px 0;
 
   background: #111;
 
   transition:
-    transform 0.3s ease;
+    transform 0.3s ease,
+    opacity 0.3s ease;
 
   transform-origin: center;
 }
 
-.menu-toggle.open span:first-child {
-  transform:
-    translateY(3px)
-    rotate(45deg);
+.menu-toggle.open span:nth-child(1) {
+  transform: translateY(6px) rotate(45deg);
 }
 
-.menu-toggle.open span:last-child {
-  transform:
-    translateY(-3px)
-    rotate(-45deg);
+.menu-toggle.open span:nth-child(2) {
+  opacity: 0;
+}
+
+.menu-toggle.open span:nth-child(3) {
+  transform: translateY(-6px) rotate(-45deg);
 }
 
 
@@ -214,18 +178,12 @@ nav a:hover::after {
 ========================= */
 
 .work {
-  padding:
-    24px
-    14px
-    105px;
+  padding: 24px 14px 105px;
 }
 
 .project-grid {
   display: grid;
-
-  grid-template-columns:
-    repeat(3, minmax(0, 1fr));
-
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 14px;
 }
 
@@ -233,16 +191,13 @@ nav a:hover::after {
   position: relative;
 
   width: 100%;
-
   aspect-ratio: 9 / 16;
 
   padding: 0;
   border: 0;
-
   overflow: hidden;
 
   background: #eee;
-
   cursor: pointer;
 }
 
@@ -251,31 +206,23 @@ nav a:hover::after {
 
   width: 100%;
   height: 100%;
-
   object-fit: cover;
 
   transition:
-    transform
-    0.75s
-    cubic-bezier(0.22, 1, 0.36, 1);
+    transform 0.75s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .project-overlay {
   position: absolute;
-
   inset: 0;
 
-  background:
-    rgba(0, 0, 0, 0.26);
+  background: rgba(0, 0, 0, 0.26);
 
-  transition:
-    background
-    0.35s ease;
+  transition: background 0.35s ease;
 }
 
 .project-title {
   position: absolute;
-
   inset: 0;
 
   display: grid;
@@ -284,16 +231,11 @@ nav a:hover::after {
   padding: 22px;
 
   color: #fff;
-
   text-align: center;
 
-  font-size:
-    clamp(27px, 2.65vw, 49px);
-
+  font-size: clamp(27px, 2.65vw, 49px);
   font-weight: 500;
-
   letter-spacing: -0.04em;
-
   line-height: 0.95;
 }
 
@@ -302,8 +244,7 @@ nav a:hover::after {
 }
 
 .project-card:hover .project-overlay {
-  background:
-    rgba(0, 0, 0, 0.15);
+  background: rgba(0, 0, 0, 0.15);
 }
 
 .loading-state {
@@ -315,19 +256,14 @@ nav a:hover::after {
   place-items: center;
 
   font-size: 11px;
-
   letter-spacing: 0.14em;
-
   text-transform: uppercase;
 }
 
 .project-error {
-  padding:
-    60px
-    20px;
+  padding: 60px 20px;
 
   color: #666;
-
   text-align: center;
 }
 
@@ -338,28 +274,19 @@ nav a:hover::after {
 
 .about {
   display: grid;
-
-  grid-template-columns:
-    1fr
-    1fr;
-
+  grid-template-columns: 1fr 1fr;
   gap: 8vw;
-
   align-items: center;
 
-  padding:
-    110px
-    6vw;
+  padding: 110px 6vw;
 
-  border-top:
-    1px solid #dedede;
+  border-top: 1px solid #dedede;
 }
 
 .about-image {
   aspect-ratio: 4 / 5;
 
   overflow: hidden;
-
   background: #eee;
 }
 
@@ -370,35 +297,23 @@ nav a:hover::after {
   height: 100%;
 
   object-fit: cover;
-
-  object-position:
-    center
-    20%;
+  object-position: center 20%;
 }
 
 .section-label {
   color: #707070;
 
   font-size: 10px;
-
   font-weight: 500;
-
   letter-spacing: 0.16em;
 }
 
 .about-copy h1 {
-  margin:
-    24px
-    0
-    32px;
+  margin: 24px 0 32px;
 
-  font-size:
-    clamp(52px, 6vw, 96px);
-
+  font-size: clamp(52px, 6vw, 96px);
   font-weight: 500;
-
   line-height: 0.92;
-
   letter-spacing: -0.05em;
 }
 
@@ -408,7 +323,6 @@ nav a:hover::after {
   color: #555;
 
   font-size: 18px;
-
   line-height: 1.72;
 }
 
@@ -419,59 +333,41 @@ nav a:hover::after {
 
 .contact {
   display: grid;
-
   grid-template-columns:
     minmax(0, 1.15fr)
     minmax(340px, 0.85fr);
 
   gap: 8vw;
-
   align-items: start;
 
-  padding:
-    120px
-    6vw;
+  padding: 120px 6vw;
 
-  border-top:
-    1px solid #dedede;
+  border-top: 1px solid #dedede;
 }
 
 .contact-heading h2 {
   max-width: 900px;
 
-  margin:
-    28px
-    0
-    55px;
+  margin: 28px 0 55px;
 
-  font-size:
-    clamp(64px, 8vw, 130px);
-
+  font-size: clamp(64px, 8vw, 130px);
   font-weight: 500;
-
   line-height: 0.86;
-
   letter-spacing: -0.06em;
 }
 
 .contact-email {
   display: inline-flex;
-
   align-items: center;
-
   gap: 8px;
 
   padding-bottom: 7px;
 
-  border-bottom:
-    1px solid #111;
+  border-bottom: 1px solid #111;
 
   font-size: 11px;
-
   font-weight: 500;
-
   letter-spacing: 0.14em;
-
   text-transform: uppercase;
 }
 
@@ -481,32 +377,25 @@ nav a:hover::after {
   color: #111;
 
   font-size: 16px;
-
   font-weight: 300;
-
   line-height: 1;
 
-  transform:
-    translateY(-1px);
+  transform: translateY(-1px);
 
-  transition:
-    transform
-    0.25s ease;
+  transition: transform 0.25s ease;
 }
 
 .contact-email:hover .email-arrow {
-  transform:
-    translate(3px, -1px);
+  transform: translate(3px, -1px);
 }
 
 .contact-form {
   width: 100%;
-
   padding-top: 28px;
 }
 
 .form-field {
-  margin-bottom: 28px;
+  margin-bottom: 32px;
 }
 
 .form-field label {
@@ -517,10 +406,9 @@ nav a:hover::after {
   color: #666;
 
   font-size: 9px;
-
   font-weight: 500;
-
   letter-spacing: 0.16em;
+  text-transform: uppercase;
 }
 
 .form-field input,
@@ -528,36 +416,23 @@ nav a:hover::after {
   display: block;
 
   width: 100%;
-
-  padding:
-    10px
-    0
-    13px;
+  padding: 10px 0 13px;
 
   border: 0;
-
-  border-bottom:
-    1px solid #aaa;
-
+  border-bottom: 1px solid #aaa;
   border-radius: 0;
-
   outline: none;
 
   background: transparent;
-
   color: #111;
 
   font-family: inherit;
-
   font-size: 17px;
-
   line-height: 1.5;
 
   resize: vertical;
 
-  transition:
-    border-color
-    0.25s ease;
+  transition: border-color 0.25s ease;
 }
 
 .form-field input:focus,
@@ -566,56 +441,41 @@ nav a:hover::after {
 }
 
 .form-submit {
-  padding:
-    14px
-    22px;
+  padding: 14px 22px;
 
-  border:
-    1px solid #111;
+  border: 1px solid #111;
 
   background: #111;
-
   color: #fff;
 
   font-size: 10px;
-
   font-weight: 500;
-
   letter-spacing: 0.16em;
 
   cursor: pointer;
 
   transition:
-    background
-    0.25s ease,
-    color
-    0.25s ease;
+    background 0.25s ease,
+    color 0.25s ease;
 }
 
 .form-submit:hover {
   background: #fff;
-
   color: #111;
 }
 
 .form-submit:disabled {
   opacity: 0.5;
-
   cursor: wait;
 }
 
 .form-status {
   min-height: 22px;
-
-  margin:
-    16px
-    0
-    0;
+  margin: 16px 0 0;
 
   color: #555;
 
   font-size: 13px;
-
   line-height: 1.5;
 }
 
@@ -626,20 +486,14 @@ nav a:hover::after {
 
 footer {
   display: flex;
-
   justify-content: flex-start;
-
   align-items: center;
 
- padding:
-24px
-60px;
+  padding: 24px 56px;
 
-  border-top:
-    1px solid #dedede;
+  border-top: 1px solid #dedede;
 
   color: #777;
-
   font-size: 11px;
 }
 
@@ -650,22 +504,15 @@ footer {
 
 .modal {
   position: fixed;
-
   inset: 0;
-
   z-index: 100;
 
   display: none;
 
-  padding:
-    72px
-    28px
-    28px;
-
+  padding: 72px 28px 28px;
   overflow: auto;
 
-  background:
-    rgba(255, 255, 255, 0.985);
+  background: rgba(255, 255, 255, 0.985);
 }
 
 .modal.open {
@@ -674,38 +521,28 @@ footer {
 
 .modal-close {
   position: fixed;
-
   top: 17px;
   right: 25px;
-
   z-index: 101;
 
   border: 0;
-
   background: transparent;
 
   font-size: 44px;
-
   font-weight: 300;
 
   cursor: pointer;
 }
 
 .modal-content {
-  width:
-    min(1080px, 100%);
-
-  margin:
-    0 auto;
+  width: min(1080px, 100%);
+  margin: 0 auto;
 }
 
 .modal-heading {
   display: flex;
-
   justify-content: space-between;
-
   align-items: flex-end;
-
   gap: 30px;
 
   margin-bottom: 20px;
@@ -714,31 +551,24 @@ footer {
 .modal-heading h2 {
   margin: 0;
 
-  font-size:
-    clamp(44px, 6vw, 88px);
-
+  font-size: clamp(44px, 6vw, 88px);
   font-weight: 500;
-
   letter-spacing: -0.05em;
 }
 
 .modal-heading p {
   max-width: 470px;
-
   margin: 0;
 
   color: #666;
 
   font-size: 12px;
-
   line-height: 1.5;
 }
 
 .modal-video-wrap {
   display: flex;
-
   justify-content: center;
-
   align-items: center;
 
   min-height: 65vh;
@@ -749,15 +579,11 @@ footer {
 .modal-video-wrap video {
   display: block;
 
-  width:
-    min(100%, 540px);
-
+  width: min(100%, 540px);
   height: auto;
-
   max-height: 82vh;
 
   object-fit: contain;
-
   background: transparent;
 }
 
@@ -767,18 +593,18 @@ footer {
 ========================= */
 
 @media (max-width: 900px) {
+  .site-header {
+    padding-right: 28px;
+    padding-left: 28px;
+  }
 
   .project-grid {
-    grid-template-columns:
-      repeat(2, minmax(0, 1fr));
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .about {
     grid-template-columns: 1fr;
-
-    padding:
-      80px
-      24px;
+    padding: 80px 24px;
   }
 
   .about-copy {
@@ -787,7 +613,6 @@ footer {
 
   .contact {
     grid-template-columns: 1fr;
-
     gap: 55px;
   }
 
@@ -798,7 +623,6 @@ footer {
   .modal-heading p {
     margin-top: 14px;
   }
-
 }
 
 
@@ -807,134 +631,97 @@ footer {
 ========================= */
 
 @media (max-width: 600px) {
-.brand-sub{
-
-    font-size:6px;
-
-    letter-spacing:.18em;
-
-}
   .site-header {
-    min-height: 54px;
+    min-height: 52px;
+    padding: 9px 10px;
+  }
 
-    padding:
-12px
-18px;
+  .brand {
+    gap: 5px;
   }
 
   .logo-image {
-    width: 54px;
+    width: 38px;
+  }
+
+  .brand-sub {
+    font-size: 5px;
+    font-weight: 300;
+    letter-spacing: 0.11em;
+
+    transform: translateY(0);
   }
 
   .menu-toggle {
-
     position: relative;
-
     z-index: 42;
 
     display: block;
 
-    width: 28px;
-
-    height: 20px;
-
-}
-
- .menu-toggle span {
-
-    display: block;
-
-    width: 24px;
-
-    height: 1px;
-
-    margin: 5px 0;
-
-    background: #111;
-
-    transition:
-        transform .3s ease;
-
-    transform-origin: center;
-
-}
-  .menu-toggle.open span:first-child {
-    transform:
-      translateY(3px)
-      rotate(45deg);
+    width: 30px;
+    height: 24px;
   }
 
-  .menu-toggle.open span:last-child {
-    transform:
-      translateY(-3px)
-      rotate(-45deg);
+  .menu-toggle span {
+    width: 26px;
+    height: 1px;
+    margin: 5px 0;
+  }
+
+  .menu-toggle.open span:nth-child(1) {
+    transform: translateY(6px) rotate(45deg);
+  }
+
+  .menu-toggle.open span:nth-child(2) {
+    opacity: 0;
+  }
+
+  .menu-toggle.open span:nth-child(3) {
+    transform: translateY(-6px) rotate(-45deg);
   }
 
   .site-header nav {
     position: absolute;
-
     top: 100%;
-
     left: 0;
     right: 0;
-
     z-index: 40;
 
     display: flex;
-
     flex-direction: column;
-
     align-items: stretch;
-
     gap: 0;
 
     visibility: hidden;
-
     opacity: 0;
 
-    transform:
-      translateY(-10px);
+    transform: translateY(-10px);
 
-    padding:
-      0
-      18px;
+    padding: 0 10px;
 
-    background:
-      rgba(255, 255, 255, 0.99);
-
-    border-bottom:
-      1px solid #dedede;
+    background: rgba(255, 255, 255, 0.99);
+    border-bottom: 1px solid #dedede;
 
     transition:
-      opacity
-      0.25s ease,
-      transform
-      0.25s ease,
-      visibility
-      0.25s ease;
+      opacity 0.25s ease,
+      transform 0.25s ease,
+      visibility 0.25s ease;
   }
 
   .site-header nav.open {
     visibility: visible;
-
     opacity: 1;
 
-    transform:
-      translateY(0);
+    transform: translateY(0);
   }
 
   .site-header nav a {
-    padding:
-      18px
-      0;
+    padding: 17px 0;
 
-    border-bottom:
-      1px solid #e7e7e7;
+    border-bottom: 1px solid #e7e7e7;
 
     font-size: 16px;
-
     font-weight: 400;
-
     letter-spacing: 0;
   }
 
@@ -947,16 +734,11 @@ footer {
   }
 
   .work {
-    padding:
-      10px
-      8px
-      60px;
+    padding: 10px 8px 60px;
   }
 
   .project-grid {
-    grid-template-columns:
-      repeat(2, minmax(0, 1fr));
-
+    grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 8px;
   }
 
@@ -964,14 +746,11 @@ footer {
     padding: 8px;
 
     font-size: 17px;
-
     line-height: 1;
   }
 
   .about {
-    padding:
-      70px
-      18px;
+    padding: 70px 18px;
   }
 
   .about-copy h1 {
@@ -984,19 +763,15 @@ footer {
 
   .contact {
     grid-template-columns: 1fr;
-
     gap: 55px;
 
-    padding:
-      90px
-      18px;
+    padding: 90px 18px;
   }
 
   .contact-heading h2 {
     margin-bottom: 40px;
 
-    font-size:
-      clamp(54px, 17vw, 78px);
+    font-size: clamp(54px, 17vw, 78px);
   }
 
   .contact-form {
@@ -1007,7 +782,6 @@ footer {
     gap: 6px;
 
     font-size: 10px;
-
     letter-spacing: 0.11em;
   }
 
@@ -1016,20 +790,14 @@ footer {
   }
 
   footer {
-    padding:
-      22px
-      18px;
+    padding: 22px 18px;
   }
 
   .modal {
-    padding:
-      70px
-      14px
-      20px;
+    padding: 70px 14px 20px;
   }
 
   .modal-video-wrap {
     min-height: auto;
   }
-
 }
