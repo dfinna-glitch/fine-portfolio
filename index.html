@@ -16,123 +16,255 @@
 
 <body>
 
-<header class="site-header">
+  <header class="site-header">
 
-  <a class="brand" href="#work">
-    <img
-      src="assets/images/FINE_logo.svg"
-      alt="FINE"
-      class="logo-image">
-  </a>
+    <a class="brand" href="#work" aria-label="FINE">
+      <img
+        src="assets/images/FINE_logo.svg"
+        alt="FINE"
+        class="logo-image"
+      >
+    </a>
 
-  <nav>
-    <a href="#work">WORK</a>
-    <a href="#about">ABOUT</a>
-    <a href="#contact">CONTACT</a>
-  </nav>
+    <button
+      class="menu-toggle"
+      id="menuToggle"
+      type="button"
+      aria-label="Open menu"
+      aria-expanded="false"
+      aria-controls="mainNavigation"
+    >
+      <span></span>
+      <span></span>
+    </button>
 
-</header>
+    <nav id="mainNavigation" aria-label="Main navigation">
+      <a href="#work">WORK</a>
+      <a href="#about">ABOUT</a>
+      <a href="#contact">CONTACT</a>
+    </nav>
 
-<main>
+  </header>
 
-<section id="work" class="work">
+  <main>
 
-<div id="projectGrid" class="project-grid">
-<div class="loading-state">Loading projects...</div>
-</div>
+    <section id="work" class="work">
 
-<p id="projectError" class="project-error" hidden>
-The projects could not be loaded. Please refresh the page.
-</p>
+      <div id="projectGrid" class="project-grid">
+        <div class="loading-state">
+          Loading projects...
+        </div>
+      </div>
 
-</section>
+      <p
+        id="projectError"
+        class="project-error"
+        hidden
+      >
+        The projects could not be loaded. Please refresh the page.
+      </p>
 
-<section id="about" class="about">
+    </section>
 
-<div class="about-image">
-<img
-src="assets/images/daniel-about.jpg"
-alt="Daniel Fine Shamir">
-</div>
+    <section id="about" class="about">
 
-<div class="about-copy">
+      <div class="about-image">
+        <img
+          src="assets/images/daniel-about.jpg"
+          alt="Daniel Fine Shamir"
+        >
+      </div>
 
-<span class="section-label">ABOUT</span>
+      <div class="about-copy">
 
-<h1>Hi, I'm Daniel Fine Shamir.</h1>
+        <span class="section-label">
+          ABOUT
+        </span>
 
-<p>
-I hold a degree in Visual Communication and bring experience
-in UX/UI, graphic design, branding and creative direction.
-</p>
+        <h1>
+          Hi, I'm Daniel Fine Shamir.
+        </h1>
 
-<p>
-I create cinematic AI films and visual concepts by combining
-design thinking, storytelling and emerging technology.
-</p>
+        <p>
+          I hold a degree in Visual Communication and bring experience
+          in UX/UI, graphic design, branding and creative direction.
+        </p>
 
-</div>
+        <p>
+          I create cinematic AI films and visual concepts by combining
+          design thinking, storytelling and emerging technology.
+        </p>
 
-</section>
+      </div>
 
-<section id="contact" class="contact">
+    </section>
 
-<span class="section-label">CONTACT</span>
+    <section id="contact" class="contact">
 
-<h2>Let's create something impossible.</h2>
+      <div class="contact-heading">
 
-<a href="mailto:Dfinna@gmail.com">
-Dfinna@gmail.com ↗
-</a>
+        <span class="section-label">
+          CONTACT
+        </span>
 
-</section>
+        <h2>
+          Let's create something impossible.
+        </h2>
 
-</main>
+        <a
+          class="contact-email"
+          href="mailto:Dfinna@gmail.com"
+        >
+          Dfinna@gmail.com ↗
+        </a>
 
-<footer>
+      </div>
 
-<div class="brand footer-brand">
+      <form
+        class="contact-form"
+        id="contactForm"
+      >
 
-<img
-src="assets/images/FINE_logo.svg"
-alt="FINE"
-class="logo-image">
+        <div class="form-field">
 
-</div>
+          <label for="contactName">
+            NAME
+          </label>
 
-<span>© 2026 Daniel Fine Shamir</span>
+          <input
+            id="contactName"
+            name="name"
+            type="text"
+            autocomplete="name"
+            required
+          >
 
-</footer>
+        </div>
 
-<div class="modal" id="videoModal" aria-hidden="true">
+        <div class="form-field">
 
-<button
-class="modal-close"
-aria-label="Close video">
-×
-</button>
+          <label for="contactEmail">
+            EMAIL
+          </label>
 
-<div class="modal-content">
+          <input
+            id="contactEmail"
+            name="email"
+            type="email"
+            autocomplete="email"
+            required
+          >
 
-<div class="modal-heading">
-<h2 id="modalTitle"></h2>
-<p id="modalNote"></p>
-</div>
+        </div>
 
-<div class="modal-video-wrap">
-<video
-id="modalVideo"
-controls
-playsinline
-preload="metadata">
-</video>
-</div>
+        <div class="form-field">
 
-</div>
+          <label for="contactPhone">
+            PHONE
+          </label>
 
-</div>
+          <input
+            id="contactPhone"
+            name="phone"
+            type="tel"
+            autocomplete="tel"
+          >
 
-<script src="script.js"></script>
+        </div>
+
+        <div class="form-field">
+
+          <label for="contactMessage">
+            TELL ME ABOUT YOUR PROJECT
+          </label>
+
+          <textarea
+            id="contactMessage"
+            name="message"
+            rows="5"
+            required
+          ></textarea>
+
+        </div>
+
+        <button
+          class="form-submit"
+          type="submit"
+        >
+          SEND MESSAGE
+        </button>
+
+        <p
+          class="form-status"
+          id="formStatus"
+          role="status"
+          aria-live="polite"
+        ></p>
+
+      </form>
+
+    </section>
+
+  </main>
+
+  <footer>
+
+    <div class="brand footer-brand">
+
+      <img
+        src="assets/images/FINE_logo.svg"
+        alt="FINE"
+        class="logo-image"
+      >
+
+    </div>
+
+    <span>
+      © 2026 Daniel Fine Shamir
+    </span>
+
+  </footer>
+
+  <div
+    class="modal"
+    id="videoModal"
+    aria-hidden="true"
+  >
+
+    <button
+      class="modal-close"
+      aria-label="Close video"
+      type="button"
+    >
+      ×
+    </button>
+
+    <div class="modal-content">
+
+      <div class="modal-heading">
+
+        <h2 id="modalTitle"></h2>
+
+        <p id="modalNote"></p>
+
+      </div>
+
+      <div class="modal-video-wrap">
+
+        <video
+          id="modalVideo"
+          controls
+          playsinline
+          preload="metadata"
+        ></video>
+
+      </div>
+
+    </div>
+
+  </div>
+
+  <script src="script.js"></script>
 
 </body>
 </html>
