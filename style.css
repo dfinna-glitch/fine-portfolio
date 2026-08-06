@@ -77,7 +77,9 @@ textarea {
 
     gap:8px;
 
-    line-height:1;
+    text-decoration:none;
+
+    white-space:nowrap;
 
 }
 
@@ -93,23 +95,27 @@ textarea {
 
 .brand-sub{
 
+    display:flex;
+
+    align-items:center;
+
     font-family:"Helvetica Neue", Arial, sans-serif;
 
-    font-size:7px;
+    font-size:8px;
 
-    font-weight:400;
+    font-weight:300;
 
-    letter-spacing:.14em;
+    letter-spacing:.24em;
 
     text-transform:uppercase;
 
-    color:#444;
-
-    white-space:nowrap;
+    color:#111;
 
     line-height:1;
 
-    margin-left:2px;
+    white-space:nowrap;
+
+    margin-top:1px;
 
 }
 
@@ -801,13 +807,19 @@ footer {
 ========================= */
 
 @media (max-width: 600px) {
+.brand-sub{
 
+    font-size:6px;
+
+    letter-spacing:.18em;
+
+}
   .site-header {
     min-height: 54px;
 
     padding:
 12px
-60px;
+18px;
   }
 
   .logo-image {
@@ -815,21 +827,37 @@ footer {
   }
 
   .menu-toggle {
+
     position: relative;
 
     z-index: 42;
 
     display: block;
-  }
 
-  .menu-toggle span {
-    width: 21px;
+    width: 28px;
+
+    height: 20px;
+
+}
+
+ .menu-toggle span {
+
+    display: block;
+
+    width: 24px;
 
     height: 1px;
 
     margin: 5px 0;
-  }
 
+    background: #111;
+
+    transition:
+        transform .3s ease;
+
+    transform-origin: center;
+
+}
   .menu-toggle.open span:first-child {
     transform:
       translateY(3px)
