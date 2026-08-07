@@ -47,71 +47,51 @@ const formStatus =
 ========================= */
 
 async function loadProjects() {
-
   try {
-
     const endpoint =
       `${SUPABASE_URL}/rest/v1/projects` +
       `?select=*` +
       `&published=eq.true` +
       `&order=display_order.asc`;
 
-
     const response =
-      await fetch(
-        endpoint,
-        {
-          headers: {
-            apikey: SUPABASE_KEY
-          }
+      await fetch(endpoint, {
+        headers: {
+          apikey: SUPABASE_KEY
         }
-      );
-
+      });
 
     if (!response.ok) {
-
       const details =
         await response.text();
-
 
       throw new Error(
         `Supabase request failed ` +
         `(${response.status}): ${details}`
       );
-
     }
-
 
     const projects =
       await response.json();
-
 
     if (
       !Array.isArray(projects) ||
       projects.length === 0
     ) {
-
       throw new Error(
         "No published projects were returned."
       );
-
     }
-
 
     renderProjects(projects);
 
   } catch (error) {
-
     console.error(error);
-
 
     grid.innerHTML = "";
 
-
     errorMessage.hidden = false;
-
   }
-
 }
 
 
@@ -120,22 +100,14 @@ async function loadProjects() {
 ========================= */
 
 function renderProjects(projects) {
-
   grid.innerHTML = "";
 
-
   projects.forEach((project) => {
-
     const card =
       document.createElement("button");
 
-
-    card.className =
-      "project-card";
-
-    card.type =
-      "button";
-
+    card.className = "project-card";
+    card.type = "button";
 
     card.setAttribute(
       "aria-label",
@@ -146,23 +118,14 @@ function renderProjects(projects) {
     const image =
       document.createElement("img");
 
-
-    image.src =
-      project.cover_url;
-
-    image.alt =
-      project.title;
-
-    image.loading =
-      "lazy";
-
-    image.decoding =
-      "async";
+    image.src = project.cover_url;
+    image.alt = project.title;
+    image.loading = "lazy";
+    image.decoding = "async";
 
 
     const overlay =
       document.createElement("span");
-
 
     overlay.className =
       "project-overlay";
@@ -170,7 +133,6 @@ function renderProjects(projects) {
 
     const title =
       document.createElement("span");
-
 
     title.className =
       "project-title";
@@ -188,16 +150,12 @@ function renderProjects(projects) {
 
     card.addEventListener(
       "click",
-      () => {
-        openProject(project);
-      }
+      () => openProject(project)
     );
 
 
     grid.appendChild(card);
-
   });
-
 }
 
 
@@ -206,115 +164,83 @@ function renderProjects(projects) {
 ========================= */
 
 function openProject(project) {
-
   modalTitle.textContent =
     project.title;
 
-
   modalNote.textContent =
     project.note || "";
-
 
   modalNote.style.display =
     project.note
       ? "block"
       : "none";
 
-
   modalVideo.src =
     project.video_url;
 
-
   modalVideo.currentTime = 0;
 
-
   modal.classList.add("open");
-
 
   modal.setAttribute(
     "aria-hidden",
     "false"
   );
 
-
   document.body.style.overflow =
     "hidden";
 
-
-  modalVideo
-    .play()
-    .catch(() => {});
-
+  modalVideo.play().catch(() => {});
 }
 
 
 function closeProject() {
-
   modalVideo.pause();
-
 
   modalVideo.removeAttribute("src");
 
-
   modalVideo.load();
 
-
   modal.classList.remove("open");
-
 
   modal.setAttribute(
     "aria-hidden",
     "true"
   );
 
-
-  document.body.style.overflow =
-    "";
-
+  document.body.style.overflow = "";
 }
 
 
 if (modalClose) {
-
   modalClose.addEventListener(
     "click",
     closeProject
   );
-
 }
 
 
 if (modal) {
-
   modal.addEventListener(
     "click",
     (event) => {
-
       if (event.target === modal) {
-
         closeProject();
-
       }
-
     }
   );
-
 }
 
 
 document.addEventListener(
   "keydown",
   (event) => {
-
     if (
       event.key === "Escape" &&
       modal.classList.contains("open")
     ) {
-
       closeProject();
-
     }
-
   }
 );
 
@@ -327,30 +253,22 @@ if (
   menuToggle &&
   mainNavigation
 ) {
-
   menuToggle.addEventListener(
     "click",
     () => {
-
       const isOpen =
         mainNavigation
           .classList
           .toggle("open");
 
-
       menuToggle
         .classList
-        .toggle(
-          "open",
-          isOpen
-        );
-
+        .toggle("open", isOpen);
 
       menuToggle.setAttribute(
         "aria-expanded",
         String(isOpen)
       );
-
     }
   );
 
@@ -362,27 +280,22 @@ if (
       link.addEventListener(
         "click",
         () => {
-
           mainNavigation
             .classList
             .remove("open");
-
 
           menuToggle
             .classList
             .remove("open");
 
-
           menuToggle.setAttribute(
             "aria-expanded",
             "false"
           );
-
         }
       );
 
     });
-
 }
 
 
@@ -394,7 +307,6 @@ if (
   contactForm &&
   formStatus
 ) {
-
   contactForm.addEventListener(
     "submit",
     async (event) => {
@@ -413,123 +325,89 @@ if (
 
 
       const messageData = {
+        name: String(
+          formData.get("name") || ""
+        ).trim(),
 
-        name:
-          String(
-            formData.get("name") || ""
-          ).trim(),
+        email: String(
+          formData.get("email") || ""
+        ).trim(),
 
-        email:
-          String(
-            formData.get("email") || ""
-          ).trim(),
+        phone: String(
+          formData.get("phone") || ""
+        ).trim(),
 
-        phone:
-          String(
-            formData.get("phone") || ""
-          ).trim(),
-
-        message:
-          String(
-            formData.get("message") || ""
-          ).trim()
-
+        message: String(
+          formData.get("message") || ""
+        ).trim()
       };
 
 
-      submitButton.disabled =
-        true;
-
+      submitButton.disabled = true;
 
       submitButton.textContent =
         "SENDING...";
 
-
-      formStatus.textContent =
-        "";
+      formStatus.textContent = "";
 
 
       try {
-
         const response =
           await fetch(
-
             `${SUPABASE_URL}` +
             `/rest/v1/contact_messages`,
-
             {
-
-              method:
-                "POST",
+              method: "POST",
 
               headers: {
-
-                apikey:
-                  SUPABASE_KEY,
+                apikey: SUPABASE_KEY,
 
                 "Content-Type":
                   "application/json",
 
                 Prefer:
                   "return=minimal"
-
               },
 
               body:
                 JSON.stringify(
                   messageData
                 )
-
             }
-
           );
 
 
         if (!response.ok) {
-
           const details =
             await response.text();
 
-
           throw new Error(
-
             `Contact form error ` +
             `(${response.status}): ` +
             details
-
           );
-
         }
 
 
         contactForm.reset();
 
-
         formStatus.textContent =
           "Thank you. Your message was sent successfully.";
 
       } catch (error) {
-
         console.error(error);
-
 
         formStatus.textContent =
           "Something went wrong. Please email Dfinna@gmail.com.";
 
       } finally {
-
-        submitButton.disabled =
-          false;
-
+        submitButton.disabled = false;
 
         submitButton.textContent =
           "SEND MESSAGE";
-
       }
-
     }
   );
-
 }
 
 
