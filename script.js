@@ -5,6 +5,10 @@ const SUPABASE_KEY =
   "sb_publishable_OzIuaEhdwtOkpvXb1hbRJw_9EO71bBk";
 
 
+/* =========================
+   ELEMENTS
+========================= */
+
 const grid =
   document.getElementById("projectGrid");
 
@@ -47,51 +51,81 @@ const formStatus =
 ========================= */
 
 async function loadProjects() {
+
+  if (!grid) {
+    return;
+  }
+
   try {
+
     const endpoint =
       `${SUPABASE_URL}/rest/v1/projects` +
       `?select=*` +
       `&published=eq.true` +
       `&order=display_order.asc`;
 
+
     const response =
-      await fetch(endpoint, {
-        headers: {
-          apikey: SUPABASE_KEY
+      await fetch(
+        endpoint,
+        {
+          headers: {
+            apikey: SUPABASE_KEY
+          }
         }
-      });
+      );
+
 
     if (!response.ok) {
+
       const details =
         await response.text();
+
 
       throw new Error(
         `Supabase request failed ` +
         `(${response.status}): ${details}`
       );
+
     }
+
 
     const projects =
       await response.json();
+
 
     if (
       !Array.isArray(projects) ||
       projects.length === 0
     ) {
+
       throw new Error(
         "No published projects were returned."
       );
+
     }
+
 
     renderProjects(projects);
 
-  } catch (error) {
+  }
+
+  catch (error) {
+
     console.error(error);
 
-    grid.innerHTML = "";
 
-    errorMessage.hidden = false;
+    grid.innerHTML =
+      "";
+
+
+    if (errorMessage) {
+      errorMessage.hidden =
+        false;
+    }
+
   }
+
 }
 
 
@@ -100,147 +134,246 @@ async function loadProjects() {
 ========================= */
 
 function renderProjects(projects) {
-  grid.innerHTML = "";
 
-  projects.forEach((project) => {
-    const card =
-      document.createElement("button");
-
-    card.className = "project-card";
-    card.type = "button";
-
-    card.setAttribute(
-      "aria-label",
-      `Play ${project.title}`
-    );
+  grid.innerHTML =
+    "";
 
 
-    const image =
-      document.createElement("img");
+  projects.forEach(
+    (project) => {
 
-    image.src = project.cover_url;
-    image.alt = project.title;
-    image.loading = "lazy";
-    image.decoding = "async";
+      const card =
+        document.createElement("button");
 
 
-    const overlay =
-      document.createElement("span");
+      card.className =
+        "project-card";
 
-    overlay.className =
-      "project-overlay";
-
-
-    const title =
-      document.createElement("span");
-
-    title.className =
-      "project-title";
-
-    title.textContent =
-      project.title;
+      card.type =
+        "button";
 
 
-    card.append(
-      image,
-      overlay,
-      title
-    );
+      card.setAttribute(
+        "aria-label",
+        `Play ${project.title}`
+      );
 
 
-    card.addEventListener(
-      "click",
-      () => openProject(project)
-    );
+      const image =
+        document.createElement("img");
 
 
-    grid.appendChild(card);
-  });
+      image.src =
+        project.cover_url;
+
+      image.alt =
+        project.title;
+
+      image.loading =
+        "lazy";
+
+      image.decoding =
+        "async";
+
+
+      const overlay =
+        document.createElement("span");
+
+
+      overlay.className =
+        "project-overlay";
+
+
+      const title =
+        document.createElement("span");
+
+
+      title.className =
+        "project-title";
+
+      title.textContent =
+        project.title;
+
+
+      card.append(
+        image,
+        overlay,
+        title
+      );
+
+
+      card.addEventListener(
+        "click",
+        () => {
+          openProject(project);
+        }
+      );
+
+
+      grid.appendChild(
+        card
+      );
+
+    }
+  );
+
 }
 
 
 /* =========================
-   VIDEO MODAL
+   OPEN VIDEO
 ========================= */
 
 function openProject(project) {
-  modalTitle.textContent =
-    project.title;
 
-  modalNote.textContent =
-    project.note || "";
+  if (
+    !modal ||
+    !modalVideo
+  ) {
+    return;
+  }
 
-  modalNote.style.display =
-    project.note
-      ? "block"
-      : "none";
+
+  if (modalTitle) {
+
+    modalTitle.textContent =
+      project.title || "";
+
+  }
+
+
+  if (modalNote) {
+
+    modalNote.textContent =
+      project.note || "";
+
+
+    modalNote.style.display =
+      project.note
+        ? "block"
+        : "none";
+
+  }
+
 
   modalVideo.src =
     project.video_url;
 
-  modalVideo.currentTime = 0;
 
-  modal.classList.add("open");
+  modal.classList.add(
+    "open"
+  );
+
 
   modal.setAttribute(
     "aria-hidden",
     "false"
   );
 
+
   document.body.style.overflow =
     "hidden";
 
-  modalVideo.play().catch(() => {});
+
+  modalVideo
+    .play()
+    .catch(() => {});
+
 }
 
 
+/* =========================
+   CLOSE VIDEO
+========================= */
+
 function closeProject() {
+
+  if (
+    !modal ||
+    !modalVideo
+  ) {
+    return;
+  }
+
+
   modalVideo.pause();
 
-  modalVideo.removeAttribute("src");
+
+  modalVideo.removeAttribute(
+    "src"
+  );
+
 
   modalVideo.load();
 
-  modal.classList.remove("open");
+
+  modal.classList.remove(
+    "open"
+  );
+
 
   modal.setAttribute(
     "aria-hidden",
     "true"
   );
 
-  document.body.style.overflow = "";
+
+  document.body.style.overflow =
+    "";
+
 }
 
 
+/* Close button */
+
 if (modalClose) {
+
   modalClose.addEventListener(
     "click",
     closeProject
   );
+
 }
 
 
+/* Click outside video */
+
 if (modal) {
+
   modal.addEventListener(
     "click",
     (event) => {
-      if (event.target === modal) {
+
+      if (
+        event.target === modal
+      ) {
+
         closeProject();
+
       }
+
     }
   );
+
 }
 
+
+/* ESC closes modal */
 
 document.addEventListener(
   "keydown",
   (event) => {
+
     if (
       event.key === "Escape" &&
+      modal &&
       modal.classList.contains("open")
     ) {
+
       closeProject();
+
     }
+
   }
 );
 
@@ -253,49 +386,78 @@ if (
   menuToggle &&
   mainNavigation
 ) {
+
   menuToggle.addEventListener(
     "click",
     () => {
+
       const isOpen =
         mainNavigation
           .classList
           .toggle("open");
 
+
       menuToggle
         .classList
-        .toggle("open", isOpen);
+        .toggle(
+          "open",
+          isOpen
+        );
+
 
       menuToggle.setAttribute(
         "aria-expanded",
         String(isOpen)
       );
+
+
+      menuToggle.setAttribute(
+        "aria-label",
+        isOpen
+          ? "Close menu"
+          : "Open menu"
+      );
+
     }
   );
 
 
   mainNavigation
     .querySelectorAll("a")
-    .forEach((link) => {
+    .forEach(
+      (link) => {
 
-      link.addEventListener(
-        "click",
-        () => {
-          mainNavigation
-            .classList
-            .remove("open");
+        link.addEventListener(
+          "click",
+          () => {
 
-          menuToggle
-            .classList
-            .remove("open");
+            mainNavigation
+              .classList
+              .remove("open");
 
-          menuToggle.setAttribute(
-            "aria-expanded",
-            "false"
-          );
-        }
-      );
 
-    });
+            menuToggle
+              .classList
+              .remove("open");
+
+
+            menuToggle.setAttribute(
+              "aria-expanded",
+              "false"
+            );
+
+
+            menuToggle.setAttribute(
+              "aria-label",
+              "Open menu"
+            );
+
+          }
+        );
+
+      }
+    );
+
 }
 
 
@@ -307,6 +469,7 @@ if (
   contactForm &&
   formStatus
 ) {
+
   contactForm.addEventListener(
     "submit",
     async (event) => {
@@ -321,93 +484,139 @@ if (
 
 
       const formData =
-        new FormData(contactForm);
+        new FormData(
+          contactForm
+        );
 
 
       const messageData = {
-        name: String(
-          formData.get("name") || ""
-        ).trim(),
 
-        email: String(
-          formData.get("email") || ""
-        ).trim(),
+        name:
+          String(
+            formData.get("name") || ""
+          ).trim(),
 
-        phone: String(
-          formData.get("phone") || ""
-        ).trim(),
+        email:
+          String(
+            formData.get("email") || ""
+          ).trim(),
 
-        message: String(
-          formData.get("message") || ""
-        ).trim()
+        phone:
+          String(
+            formData.get("phone") || ""
+          ).trim(),
+
+        message:
+          String(
+            formData.get("message") || ""
+          ).trim()
+
       };
 
 
-      submitButton.disabled = true;
+      if (submitButton) {
 
-      submitButton.textContent =
-        "SENDING...";
+        submitButton.disabled =
+          true;
 
-      formStatus.textContent = "";
+
+        submitButton.textContent =
+          "SENDING...";
+
+      }
+
+
+      formStatus.textContent =
+        "";
 
 
       try {
+
         const response =
           await fetch(
+
             `${SUPABASE_URL}` +
             `/rest/v1/contact_messages`,
+
             {
-              method: "POST",
+
+              method:
+                "POST",
 
               headers: {
-                apikey: SUPABASE_KEY,
+
+                apikey:
+                  SUPABASE_KEY,
 
                 "Content-Type":
                   "application/json",
 
                 Prefer:
                   "return=minimal"
+
               },
 
               body:
                 JSON.stringify(
                   messageData
                 )
+
             }
+
           );
 
 
         if (!response.ok) {
+
           const details =
             await response.text();
+
 
           throw new Error(
             `Contact form error ` +
             `(${response.status}): ` +
             details
           );
+
         }
 
 
         contactForm.reset();
 
+
         formStatus.textContent =
           "Thank you. Your message was sent successfully.";
 
-      } catch (error) {
+      }
+
+      catch (error) {
+
         console.error(error);
+
 
         formStatus.textContent =
           "Something went wrong. Please email Dfinna@gmail.com.";
 
-      } finally {
-        submitButton.disabled = false;
-
-        submitButton.textContent =
-          "SEND MESSAGE";
       }
+
+      finally {
+
+        if (submitButton) {
+
+          submitButton.disabled =
+            false;
+
+
+          submitButton.textContent =
+            "SEND MESSAGE";
+
+        }
+
+      }
+
     }
   );
+
 }
 
 
