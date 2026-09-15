@@ -81,7 +81,6 @@ async function loadProjects() {
       const details =
         await response.text();
 
-
       throw new Error(
         `Supabase request failed ` +
         `(${response.status}): ${details}`
@@ -114,14 +113,10 @@ async function loadProjects() {
 
     console.error(error);
 
-
-    grid.innerHTML =
-      "";
-
+    grid.innerHTML = "";
 
     if (errorMessage) {
-      errorMessage.hidden =
-        false;
+      errorMessage.hidden = false;
     }
 
   }
@@ -135,8 +130,7 @@ async function loadProjects() {
 
 function renderProjects(projects) {
 
-  grid.innerHTML =
-    "";
+  grid.innerHTML = "";
 
 
   projects.forEach(
@@ -519,7 +513,6 @@ if (
         submitButton.disabled =
           true;
 
-
         submitButton.textContent =
           "SENDING...";
 
@@ -532,7 +525,11 @@ if (
 
       try {
 
-        const response =
+        /* =========================
+           SAVE TO DATABASE
+        ========================= */
+
+        const saveResponse =
           await fetch(
 
             `${SUPABASE_URL}` +
@@ -566,14 +563,15 @@ if (
           );
 
 
-               if (!response.ok) {
+        if (!saveResponse.ok) {
 
           const details =
-            await response.text();
+            await saveResponse.text();
+
 
           throw new Error(
             `Contact form error ` +
-            `(${response.status}): ` +
+            `(${saveResponse.status}): ` +
             details
           );
 
@@ -581,41 +579,61 @@ if (
 
 
         /* =========================
-           SEND EMAIL NOTIFICATION
+           SEND EMAIL
         ========================= */
 
         const emailResponse =
           await fetch(
-            `${SUPABASE_URL}/functions/v1/swift-task`,
+
+            `${SUPABASE_URL}` +
+            `/functions/v1/swift-task`,
+
             {
-              method: "POST",
+
+              method:
+                "POST",
 
               headers: {
-                "Content-Type": "application/json"
+
+                "Content-Type":
+                  "application/json",
+
+                apikey:
+                  SUPABASE_KEY,
+
+                Authorization:
+                  `Bearer ${SUPABASE_KEY}`
+
               },
 
-              body: JSON.stringify(
-                messageData
-              )
+              body:
+                JSON.stringify(
+                  messageData
+                )
+
             }
+
           );
 
 
         if (!emailResponse.ok) {
 
-          const emailError =
+          const details =
             await emailResponse.text();
 
-          console.error(
-            "Email notification failed:",
-            emailError
+
+          throw new Error(
+            `Email function error ` +
+            `(${emailResponse.status}): ` +
+            details
           );
 
         }
 
 
-        contactForm.reset();
-
+        /* =========================
+           SUCCESS
+        ========================= */
 
         contactForm.reset();
 
@@ -627,7 +645,10 @@ if (
 
       catch (error) {
 
-        console.error(error);
+        console.error(
+          "Contact form:",
+          error
+        );
 
 
         formStatus.textContent =
