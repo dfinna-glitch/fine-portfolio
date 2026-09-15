@@ -566,11 +566,10 @@ if (
           );
 
 
-        if (!response.ok) {
+               if (!response.ok) {
 
           const details =
             await response.text();
-
 
           throw new Error(
             `Contact form error ` +
@@ -579,6 +578,43 @@ if (
           );
 
         }
+
+
+        /* =========================
+           SEND EMAIL NOTIFICATION
+        ========================= */
+
+        const emailResponse =
+          await fetch(
+            `${SUPABASE_URL}/functions/v1/swift-task`,
+            {
+              method: "POST",
+
+              headers: {
+                "Content-Type": "application/json"
+              },
+
+              body: JSON.stringify(
+                messageData
+              )
+            }
+          );
+
+
+        if (!emailResponse.ok) {
+
+          const emailError =
+            await emailResponse.text();
+
+          console.error(
+            "Email notification failed:",
+            emailError
+          );
+
+        }
+
+
+        contactForm.reset();
 
 
         contactForm.reset();
