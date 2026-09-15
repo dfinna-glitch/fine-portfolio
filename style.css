@@ -1237,3 +1237,7 @@ footer {
   }
 
 }
+/* Keep line breaks in project titles */
+.project-title {
+  white-space: pre-line;
+}
